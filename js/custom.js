@@ -134,3 +134,17 @@
 
 
 })(window.jQuery);
+
+document.addEventListener("DOMContentLoaded", function () {
+    var video = document.querySelector(".welcome-area .welcome-video");
+    if (!video) return;
+
+    video.addEventListener("canplay", function () {
+        video.classList.add("is-ready");
+    });
+
+    // Try to start autoplay
+    video.play().catch(function () {
+        console.log("Autoplay might be blocked.");
+    });
+});
