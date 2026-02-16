@@ -141,6 +141,94 @@
             font-size: 14px;
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
         }
+
+       /* ===== Hero Video (welcome section) ===== */
+
+.welcome-area {
+    position: relative;
+    height: 100vh;          
+    min-height: 480px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ 
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Video element */
+.welcome-area .welcome-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;   /* behind overlay + text */
+
+    /* Smooth fade-in */
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+
+.welcome-area .welcome-video.is-ready {
+    opacity: 1;
+}
+
+/* Dark overlay ON TOP of the video */
+.welcome-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.25)
+    );
+    pointer-events: none;
+}
+
+/* Text overlay */
+.welcome-area .header-text {
+    position: relative;
+    z-index: 3;     
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+
+
+.welcome-area .header-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.welcome-area .header-text p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+    .welcome-area .header-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .welcome-area .header-text p {
+        font-size: 0.95rem;
+    }
+}
+
+
     </style>
 
     <!-- preload -->
@@ -151,6 +239,9 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
     <link rel="stylesheet" href="css/templatemo-softy-pinko.css" />
+
+    <link rel="stylesheet" href="css/modernization.css" />
+    <link rel="stylesheet" href="css/hero-light-theme.css" /> 
 </head>
 
 <body>
@@ -161,10 +252,9 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo ***** -->
-                        <a href="https://www.flinders.edu.au/research/engineering-and-technology" class="logo">
-                            <img src="img/logo-small-svg.svg" alt="AWET" height="78.5" />
-
-                        </a>
+                      <a href="#welcome" class="logo">
+    <img src="img/logo-small-svg.svg" alt="AWET" height="78.5" />
+</a>
                         <!-- ***** Logo end ***** -->
 
                         <!-- ***** nav ***** -->
@@ -187,26 +277,86 @@
         </div>
     </header>
     <!-- ***** header end ***** -->
-
-    <!-- ***** welcome***** -->
-    <div id="welcome" class="welcome-area">
-        <!-- ***** header ***** -->
-        <div class="header-text">
-            <div class="container">
-                <div class="row">
-                    <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                        <h1>Advanced Wind Energy Technology Research Group
-                        </h1>
-                        <p>Next-Gen Wind Energy Technologies – Smart Aerodynamics, Digital Twins & Sustainable
-                            Innovation</p>
-
+<div id="welcome" class="welcome-area">
+    
+   
+    <div class="welcome-video-container">
+        <video 
+            class="welcome-video"
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            preload="auto"
+        >
+            <source src="video/banner-vid2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+ 
+    <div class="hero-decoration circle-1"></div>
+    <div class="hero-decoration circle-2"></div>
+    
+   
+    <div class="header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <!-- Badge -->
+                    <div class="hero-badge">
+                        <div class="dot"></div>
+                        <span>Flinders University Research</span>
                     </div>
+                    
+                    <!-- Main Heading -->
+                    <h1>
+                        <span class="gradient-text">Advanced</span> Wind Energy Technology Research Group
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p>
+                        Next-Gen Wind Energy Technologies - Smart Aerodynamics, 
+                        Digital Twins &amp; Sustainable Innovation for a cleaner future.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="hero-buttons">
+                        <a href="#About" class="hero-btn-primary">
+                            Explore Research
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#contact-us" class="hero-btn-secondary">
+                            Contact Us
+                        </a>
+                    </div>
+                    
+                    <!-- Stats Row -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="number">6<span>+</span></div>
+                            <div class="label">Research Areas</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="number">6</div>
+                            <div class="label">Researchers</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="number">8<span>+</span></div>
+                            <div class="label">Projects</div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
-        <!-- ***** header end ***** -->
     </div>
-    <!-- ***** welcome end ***** -->
+    
+</div>
+    
 
 
     <!-- ***** About ***** -->
@@ -359,14 +509,14 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="https://www.flinders.edu.au/people/amir.zanj"><img src="img/Amir.png" alt="" height="200" title="Amir
+                            <i><a href="amir-zanj.html"><img src="img/Amir.png" alt="" height="200" title="Amir
                                         Zanj" /></a></i>
 
                             <p>Lead and oversee all research projects within the group, ensuring scientific rigor and
                                 innovation.
                             </p>
                             <div class="team-info">
-                                <h3 class="user-name"><a href="https://www.flinders.edu.au/people/amir.zanj">Amir
+                                <h3 class="user-name"><a href="amir-zanj.html">Amir
                                         Zanj</a>
                                 </h3>
                                 <span>Principal Investigator
@@ -379,14 +529,14 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="/Abolfazl.html"><img src="img/Abolfazl.png" alt="" height="200"
+                            <i><a href="abolfazl-abdolahifar.html"><img src="img/Abolfazl.png" alt="" height="200"
                                         title="Abolfazl" /></a></i>
 
                             <p>Aerodynamics of Wind Turbines, Flow Control, CFD
                             </p>
                             <div class="team-info">
                                 <h3 class="user-name"><a
-                                        href="https://scholar.google.com/citations?user=8NNPBH8AAAAJ&hl=en&oi=ao">Abolfazl
+                                        href="abolfazl-abdolahifar.html">Abolfazl
                                         Abdolahifar</a>
                                 </h3>
                                 <span>
@@ -399,13 +549,13 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="/bahar.html"><img src="img/bahar.png" alt="" height="200"
+                            <i><a href="bahar-amani.html"><img src="img/bahar.png" alt="" height="200"
                                         title="Bahar" /></a></i>
                             <p>Wind-Integrated Hybrid Energy Systems,PEM Fuel Cells
                             </p>
                             <div class="team-info">
                                 <h3 class="user-name"><a
-                                        href="https://scholar.google.com/citations?hl=en&user=wuwFQ14AAAAJ">Bahar
+                                        href="bahar-amani.html">Bahar
                                         Amani</a>
                                 </h3>
                                 <span>
@@ -420,12 +570,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="/hadi.html"><img src="img/hadi.jpg" alt="" height="200" title="Hadi" /></a></i>
+                            <i><a href="hadi-zare.html"><img src="img/hadi.jpg" alt="" height="200" title="Hadi" /></a></i>
                             <p>Digital Twin, AI, Control System
                                 Digital Twin, AI, Control System
                             </p>
                             <div class="team-info">
-                                <h3 class="user-name"><a href="https://www.linkedin.com/in/hadi-z-934b5866/">Hadi
+                                <h3 class="user-name"><a href="hadi-zare.html">Hadi
                                         Zare</a>
                                 </h3>
                                 <span>
@@ -438,13 +588,13 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="/mahdi.html"><img src="img/mahdi.png" alt="" height="200"
+                            <i><a href="mahdi-jalilvand.html"><img src="img/mahdi.png" alt="" height="200"
                                         title="Mahdi" /></a></i>
                             <p>Surface Engineering, Tribology, Corrosion & Oxidation
                             </p>
                             <div class="team-info">
                                 <h3 class="user-name"><a
-                                        href="https://scholar.google.com/citations?user=D9XcZ0YTRgUC&hl=en">Mahdi
+                                        href="mahdi-jalilvand.html">Mahdi
                                         Jalilvand</a>
                                 </h3>
                                 <span>
@@ -457,13 +607,13 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><a href="/mosen.html"><img src="img/mohsen.png" alt="" height="200"
+                            <i><a href="mohsen-feyzi.html"><img src="img/mohsen.png" alt="" height="200"
                                         title="Mohsen" /></a></i>
                             <p>Advanced Manufacturing, CAD/CAM, Continuum Damage Mechanics
                             </p>
                             <div class="team-info">
                                 <h3 class="user-name"><a
-                                        href="https://scholar.google.com/citations?user=upCDgs0AAAAJ&hl=en">Mohsen
+                                        href="mohsen-feyzi.html">Mohsen
                                         Feyzi</a>
                                 </h3>
                                 <span>
@@ -740,99 +890,180 @@
             </div>
         </div>
     </section>
-    <!-- activities end-->
+ 
 
-    <!-- ***** Talk To Us ***** -->
-    <section id="contact-us" class="section colored">
-        <div class="container">
-            <!-- ***** part header ***** -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="center-heading">
-                        <h2 class="section-title">Talk To Us</h2>
-                    </div>
-                </div>
-                <div class="offset-lg-3 col-lg-6">
-                    <div class="center-text">
-                        <p>Open for Research Partnerships & Academic Exchange
-                        </p>
-                    </div>
+
+<!-- ***** Contact Us ***** -->
+<section id="contact-us" class="section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">Get In Touch</h2>
                 </div>
             </div>
-            <!-- ***** part header end ***** -->
-
-            <div class="row">
-                <!-- ***** contact details ***** -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <h5 class="margin-bottom-30">Keep in touch</h5>
-                    <div class="contact-text">
-                        <p>Address: Tonsley Innovation District, 4 MAB Eastern Prom, Tonsley SA 5042</p>
-                        <p>Contact Email: wang2587@gmail.com</p>
-                    </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+                    <p>Open for Research Partnerships, Academic Collaborations & General Inquiries</p>
                 </div>
-                <!-- ***** contact details end***** -->
-
-                <!-- ***** contact form ***** -->
-                <div class="col-lg-8 col-md-6 col-sm-12">
-                    <div class="contact-form">
-                        <form id="contact" action="https://formspree.io/f/manjgogj" method="POST">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <fieldset>
-                                        <input name="name" type="text" id="name" placeholder="Full Name" required
-                                            class="form-control" />
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <fieldset>
-                                        <input name="email" type="email" id="email" placeholder="E-Mail Address"
-                                            required class="form-control" />
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <textarea name="message" rows="6" id="message" placeholder="Your Message"
-                                            required class="form-control"></textarea>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="main-button">Send
-                                            Message</button>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- ***** contact form end***** -->
             </div>
         </div>
-    </section>
-    <!-- ***** talk to us end ***** -->
+
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="contact-info-wrapper">
+                    <h5>Contact Information</h5>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h6>Address</h6>
+                            <p>Tonsley Innovation District<br>4 MAB Eastern Prom<br>Tonsley SA 5042, Australia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h6>Email</h6>
+                            <p><a href="mailto:amir.zanj@flinders.edu.au">amir.zanj@flinders.edu.au</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h6>Institution</h6>
+                            <p>Flinders University<br>College of Science & Engineering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" action="https://formspree.io/f/manjgogj" method="POST">
+                        
+                        <!-- Row 1: Name & Email -->
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Organization & Role -->
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="organization">Organization / Institution</label>
+                                <input type="text" id="organization" name="organization" placeholder="Your university or company">
+                            </div>
+                            <div class="form-group half">
+                                <label for="role">I am a <span class="required">*</span></label>
+                                <select id="role" name="role" required>
+                                    <option value="" disabled selected>Select your role</option>
+                                    <option value="Student - Undergraduate">Student - Undergraduate</option>
+                                    <option value="Student - Postgraduate">Student - Postgraduate (Masters/PhD)</option>
+                                    <option value="Academic Researcher">Academic Researcher</option>
+                                    <option value="Industry Professional">Industry Professional</option>
+                                    <option value="Government/Policy">Government / Policy Maker</option>
+                                    <option value="Media/Journalist">Media / Journalist</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Inquiry Type -->
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label for="inquiry-type">Reason for Contact <span class="required">*</span></label>
+                                <select id="inquiry-type" name="inquiry_type" required>
+                                    <option value="" disabled selected>Select inquiry type</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Research Collaboration">Research Collaboration</option>
+                                    <option value="Industry Partnership">Industry Partnership</option>
+                                    <option value="PhD/Research Opportunities">PhD / Research Opportunities</option>
+                                    <option value="Media/Press Inquiry">Media / Press Inquiry</option>
+                                    <option value="Sponsorship">Sponsorship</option>
+                                    <option value="Technical Question">Technical Question</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 4: Subject -->
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label for="subject">Subject <span class="required">*</span></label>
+                                <input type="text" id="subject" name="subject" placeholder="Brief subject of your inquiry" required>
+                            </div>
+                        </div>
+
+                        <!-- Row 5: Message -->
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label for="message">Message <span class="required">*</span></label>
+                                <textarea id="message" name="message" rows="5" placeholder="Please describe your inquiry in detail..." required></textarea>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_subject" value="New AWET Website Inquiry">
+
+                        <!-- Submit Button -->
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <button type="submit" class="submit-btn">
+                                    <span>Send Message</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="form-note">
+                            <span class="required">*</span> Required fields. We typically respond within 2-3 business days.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Contact Us End ***** -->
 
 
     <!-- ***** footer ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <ul class="social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="copyright"> © 2025 AWET Group.</p>
-                </div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="copyright">© 2026 AWET Group.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
     <!-- ***** footer end ***** -->
 
     <!-- JavaScript -->
@@ -846,6 +1077,8 @@
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/imgfix.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <script src="js/modernization.js"></script>
 </body>
 
 </html>
