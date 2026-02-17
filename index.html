@@ -1114,6 +1114,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+    <script>
+(function() {
+    var menuTrigger = document.querySelector('.menu-trigger');
+    var nav = document.querySelector('.header-area .nav');
+    
+    if (menuTrigger && nav) {
+        menuTrigger.onclick = function(e) {
+            e.preventDefault();
+            
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.opacity = '1';
+                nav.style.visibility = 'visible';
+                nav.style.pointerEvents = 'auto';
+            }
+        };
+    }
+})();
+</script>
     
 </body>
 
