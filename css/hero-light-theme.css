@@ -379,6 +379,20 @@
    RESPONSIVE - Small Tablet
    ============================================ */
 @media (max-width: 991px) {
+     .header-area {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 9999 !important;
+        padding: 10px 15px !important;
+    }
+    
+    .header-area .main-nav {
+        padding: 8px 16px !important;
+        max-width: 95% !important;
+        justify-content: space-between !important;
+    }
     .welcome-area {
         flex-direction: column !important;
         background: #ffffff !important;
