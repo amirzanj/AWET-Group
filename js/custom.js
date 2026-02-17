@@ -148,3 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Autoplay might be blocked.");
     });
 });
+// Mobile Menu Toggle
+$(document).ready(function() {
+    $('.menu-trigger').on('click', function() {
+        $(this).toggleClass('active');
+        $('.header-area .nav').toggleClass('open');
+    });
+});
+
