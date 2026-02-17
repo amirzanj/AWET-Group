@@ -155,4 +155,28 @@ $(document).ready(function() {
         $('.header-area .nav').toggleClass('open');
     });
 });
+// Mobile Menu Toggle - Vanilla JS (No jQuery needed)
+document.addEventListener('DOMContentLoaded', function() {
+    var menuTrigger = document.querySelector('.menu-trigger');
+    var nav = document.querySelector('.header-area .nav');
+    
+    if (menuTrigger && nav) {
+        menuTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.toggle('active');
+            nav.classList.toggle('open');
+            nav.classList.toggle('visible');
+        });
+    }
+    
+    // Close menu when clicking a link
+    var navLinks = document.querySelectorAll('.header-area .nav li a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            menuTrigger.classList.remove('active');
+            nav.classList.remove('open');
+            nav.classList.remove('visible');
+        });
+    });
+});
 
