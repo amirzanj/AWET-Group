@@ -428,28 +428,31 @@
         max-width: 95% !important;
     }
     
-    .header-area .nav {
-        position: fixed !important;
-        top: 80px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        flex-direction: column !important;
-        background: #ffffff !important;
-        border-radius: 16px !important;
-        border: 1px solid #e2e8f0 !important;
-        padding: 12px !important;
-        width: 90% !important;
-        max-width: 320px !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    .header-area .nav.visible {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
+ .header-area .nav {
+    position: fixed !important;
+    top: 80px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 12px !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+    z-index: 9999 !important;
+}
+    .header-area .nav.visible,
+.header-area .nav.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
     
     .header-area .nav li {
         width: 100% !important;
