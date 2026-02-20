@@ -543,4 +543,50 @@
     .header-area .logo img {
         height: 42px !important;
     }
+
+    /* ============================================
+   MOBILE MENU FIX - Z-INDEX & OVERFLOW
+   ============================================ */
+
+/* Ensure header sits above everything */
+.header-area {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    overflow: visible !important;
+}
+
+.header-area .main-nav {
+    position: relative !important;
+    z-index: 10000 !important;
+    overflow: visible !important;
+}
+
+/* Mobile dropdown menu */
+@media (max-width: 991px) {
+    .header-area .main-nav .nav {
+        position: absolute !important;
+        top: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 90% !important;
+        max-width: 320px !important;
+        z-index: 10001 !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
+        border-radius: 16px !important;
+        padding: 16px !important;
+        display: none !important;
+    }
+
+    /* Show menu when active class is added */
+    .header-area .main-nav .nav.active,
+    .header-area .main-nav .nav.open,
+    .header-area .main-nav .nav.visible {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}
 }
