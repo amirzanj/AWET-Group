@@ -1079,64 +1079,6 @@
     <script src="js/custom.js"></script>
 
     <script src="js/modernization.js"></script>
-
-
-<script>
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    var menuTrigger = document.querySelector('.menu-trigger');
-    var nav = document.querySelector('.header-area .nav');
-    
-    if (menuTrigger) {
-        menuTrigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-                nav.style.opacity = '0';
-                nav.style.visibility = 'hidden';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.opacity = '1';
-                nav.style.visibility = 'visible';
-            }
-        });
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (nav && !nav.contains(e.target) && !menuTrigger.contains(e.target)) {
-            nav.style.display = 'none';
-            nav.style.opacity = '0';
-            nav.style.visibility = 'hidden';
-        }
-    });
-});
-</script>
-
-    <script>
-(function() {
-    var menuTrigger = document.querySelector('.menu-trigger');
-    var nav = document.querySelector('.header-area .nav');
-    
-    if (menuTrigger && nav) {
-        menuTrigger.onclick = function(e) {
-            e.preventDefault();
-            
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.opacity = '1';
-                nav.style.visibility = 'visible';
-                nav.style.pointerEvents = 'auto';
-            }
-        };
-    }
-})();
-</script>
-    
 </body>
 
 </html>
